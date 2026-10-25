@@ -26,8 +26,8 @@ export function SiBorgIcon({ size = 28, mood = 'idle' }: { size?: number; mood?:
   );
 }
 export const SiBorgGlyph = ({ size = 40 }: { size?: number }) => <img src={siborgGlyph} alt="SiBorg" width={size} height={size * 0.95} style={{ width: size, height: 'auto' }} />;
-/** The two eyes (glow and pill) are wrapped in one group so they can move on their own. The asset is our own file, not user input. */
-const ART_MARKUP = siborgArtRaw.replace(/(<ellipse cx="114\.94"[^>]*\/><ellipse cx="137\.68"[^>]*\/><rect[^>]*\/><rect[^>]*\/>)/, '<g class="sib-eyes">$1</g>');
+/** The two eye pills are wrapped in one group so they can move on their own. The asset is our own file, not user input. */
+const ART_MARKUP = siborgArtRaw.replace(/(<rect x="111\.98"[^>]*\/><rect x="134\.72"[^>]*\/>)/, '<g class="sib-eyes">$1</g>');
 
 /**
  * Large moments only: hero of the SiBorg workspace, sign-in and empty states.
@@ -53,7 +53,7 @@ export function SiBorgArt({ width = 220, follow = true }: { width?: number; foll
       // reach full turn at the far edge on either side, so left and right feel equally lively
       const dx = (e.clientX - cx) / Math.max(120, e.clientX < cx ? cx : window.innerWidth - cx);
       const dy = (e.clientY - cy) / Math.max(120, e.clientY < cy ? cy : window.innerHeight - cy);
-      aim(Math.max(-1, Math.min(1, dx)) * 8, Math.max(-1, Math.min(1, dy)) * 6);
+      aim(Math.max(-1, Math.min(1, dx)) * 11, Math.max(-1, Math.min(1, dy)) * 8);
     };
     const leave = () => aim(0, 0);
     const scheduleBlink = () => {
