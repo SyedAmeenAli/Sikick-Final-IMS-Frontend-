@@ -1,0 +1,233 @@
+/* Sikick IMS — design tokens.
+   Warm ivory workspace, charcoal ink, deep wine accent, restrained blush.
+
+   Theme system: every colour is a semantic token registered with @property, so a theme switch is
+   one coordinated transition of the tokens themselves (background, text, borders, shadows, glass,
+   gradients, charts and SVG all follow because they only ever read these tokens). Nothing uses
+   `transition: all`, and no layout property is involved. Browsers without @property simply switch at once. */
+
+@property --bg { syntax: '<color>'; inherits: true; initial-value: #f4efea; }
+@property --bg-sunk { syntax: '<color>'; inherits: true; initial-value: #ede6df; }
+@property --surface { syntax: '<color>'; inherits: true; initial-value: #fffdfb; }
+@property --surface-2 { syntax: '<color>'; inherits: true; initial-value: #faf6f2; }
+@property --surface-3 { syntax: '<color>'; inherits: true; initial-value: #f3ece6; }
+@property --line { syntax: '<color>'; inherits: true; initial-value: #e5dbd4; }
+@property --line-strong { syntax: '<color>'; inherits: true; initial-value: #d6c9c0; }
+@property --ink { syntax: '<color>'; inherits: true; initial-value: #1f171a; }
+@property --ink-2 { syntax: '<color>'; inherits: true; initial-value: #4a3d42; }
+@property --ink-3 { syntax: '<color>'; inherits: true; initial-value: #7a6b71; }
+@property --ink-4 { syntax: '<color>'; inherits: true; initial-value: #8a7b83; }
+@property --wine { syntax: '<color>'; inherits: true; initial-value: #8b1538; }
+@property --wine-strong { syntax: '<color>'; inherits: true; initial-value: #6e0f2b; }
+@property --wine-deep { syntax: '<color>'; inherits: true; initial-value: #3e0c1b; }
+@property --wine-soft { syntax: '<color>'; inherits: true; initial-value: #f5e8ea; }
+@property --wine-line { syntax: '<color>'; inherits: true; initial-value: #e3c3cb; }
+@property --on-wine { syntax: '<color>'; inherits: true; initial-value: #fff7f5; }
+@property --blush { syntax: '<color>'; inherits: true; initial-value: #f5e8ea; }
+@property --ok { syntax: '<color>'; inherits: true; initial-value: #1f7a55; }
+@property --ok-soft { syntax: '<color>'; inherits: true; initial-value: #e3f2ea; }
+@property --warn { syntax: '<color>'; inherits: true; initial-value: #a96a12; }
+@property --warn-soft { syntax: '<color>'; inherits: true; initial-value: #faefd9; }
+@property --bad { syntax: '<color>'; inherits: true; initial-value: #b3263f; }
+@property --bad-soft { syntax: '<color>'; inherits: true; initial-value: #fbe6ea; }
+@property --info { syntax: '<color>'; inherits: true; initial-value: #2f5f93; }
+@property --info-soft { syntax: '<color>'; inherits: true; initial-value: #e5eef8; }
+@property --glass-1 { syntax: '<color>'; inherits: true; initial-value: rgb(255 253 251 / 0.78); }
+@property --glass-2 { syntax: '<color>'; inherits: true; initial-value: rgb(255 253 251 / 0.88); }
+@property --glass-3 { syntax: '<color>'; inherits: true; initial-value: rgb(255 253 251 / 0.93); }
+@property --glass-hover { syntax: '<color>'; inherits: true; initial-value: rgb(255 255 253 / 0.97); }
+@property --glass-border { syntax: '<color>'; inherits: true; initial-value: rgb(70 36 48 / 0.12); }
+@property --glass-border-hover { syntax: '<color>'; inherits: true; initial-value: rgb(139 21 56 / 0.28); }
+@property --glass-edge { syntax: '<color>'; inherits: true; initial-value: rgb(255 255 255 / 0.95); }
+@property --glass-sheen { syntax: '<color>'; inherits: true; initial-value: rgb(255 255 255 / 0.5); }
+@property --ambient-a { syntax: '<color>'; inherits: true; initial-value: rgb(139 21 56 / 0.075); }
+@property --ambient-b { syntax: '<color>'; inherits: true; initial-value: rgb(201 130 96 / 0.09); }
+@property --ambient-c { syntax: '<color>'; inherits: true; initial-value: rgb(120 140 190 / 0.06); }
+@property --shadow-c { syntax: '<color>'; inherits: true; initial-value: rgb(40 20 28); }
+@property --chart-2 { syntax: '<color>'; inherits: true; initial-value: #b45c7a; }
+@property --chart-3 { syntax: '<color>'; inherits: true; initial-value: #d9a0b0; }
+@property --chart-4 { syntax: '<color>'; inherits: true; initial-value: #7a6b71; }
+@property --scroll-thumb { syntax: '<color>'; inherits: true; initial-value: rgb(70 36 48 / 0.28); }
+@property --on-wine-dark { syntax: '<color>'; inherits: true; initial-value: #2a0b13; }
+@property --sa1 { syntax: '<number>'; inherits: true; initial-value: 0.06; }
+@property --sa2 { syntax: '<number>'; inherits: true; initial-value: 0.22; }
+@property --sa3 { syntax: '<number>'; inherits: true; initial-value: 0.35; }
+@property --ga1 { syntax: '<number>'; inherits: true; initial-value: 0.05; }
+@property --ga2 { syntax: '<number>'; inherits: true; initial-value: 0.32; }
+@property --ga3 { syntax: '<number>'; inherits: true; initial-value: 0.06; }
+@property --ga4 { syntax: '<number>'; inherits: true; initial-value: 0.4; }
+
+:root {
+  color-scheme: light;
+  --bg: #f4efea;
+  --bg-sunk: #ede6df;
+  --surface: #fffdfb;
+  --surface-2: #faf6f2;
+  --surface-3: #f3ece6;
+  --line: #e5dbd4;
+  --line-strong: #d6c9c0;
+  --ink: #1f171a;
+  --ink-2: #4a3d42;
+  --ink-3: #7a6b71;
+  --ink-4: #8a7b83;
+  --wine: #8b1538;
+  --wine-strong: #6e0f2b;
+  --wine-deep: #3e0c1b;
+  --wine-soft: #f5e8ea;
+  --wine-line: #e3c3cb;
+  --on-wine: #fff7f5;
+  --blush: #f5e8ea;
+  --ok: #1f7a55;
+  --ok-soft: #e3f2ea;
+  --warn: #a96a12;
+  --warn-soft: #faefd9;
+  --bad: #b3263f;
+  --bad-soft: #fbe6ea;
+  --info: #2f5f93;
+  --info-soft: #e5eef8;
+  --glass-1: rgb(255 253 251 / 0.78);
+  --glass-2: rgb(255 253 251 / 0.88);
+  --glass-3: rgb(255 253 251 / 0.93);
+  --glass-hover: rgb(255 255 253 / 0.97);
+  --glass-border: rgb(70 36 48 / 0.12);
+  --glass-border-hover: rgb(139 21 56 / 0.28);
+  --glass-edge: rgb(255 255 255 / 0.95);
+  --glass-sheen: rgb(255 255 255 / 0.5);
+  --ambient-a: rgb(139 21 56 / 0.075);
+  --ambient-b: rgb(201 130 96 / 0.09);
+  --ambient-c: rgb(120 140 190 / 0.06);
+  --shadow-c: rgb(40 20 28);
+  --chart-2: #b45c7a;
+  --chart-3: #d9a0b0;
+  --chart-4: #7a6b71;
+  --scroll-thumb: rgb(70 36 48 / 0.28);
+  --on-wine-dark: #2a0b13;
+  --sa1: 0.06;
+  --sa2: 0.22;
+  --sa3: 0.35;
+  --ga1: 0.05;
+  --ga2: 0.32;
+  --ga3: 0.06;
+  --ga4: 0.4;
+
+  /* aliases and composed tokens (follow the registered ones above) */
+  --glass: var(--glass-1);
+  --glass-line: var(--glass-edge);
+  --field: var(--surface);
+  --field-placeholder: var(--ink-4);
+  --table-head: var(--surface-2);
+  --row-hover: var(--surface-2);
+  --row-selected: var(--wine-soft);
+  --chart-1: var(--wine);
+  --chart-grid: var(--line);
+  --chart-axis: var(--ink-3);
+  --nav-bg: var(--surface);
+  --nav-active-bg: var(--wine-soft);
+  --shadow-1: 0 1px 2px color-mix(in srgb, var(--shadow-c) calc(var(--sa1) * 100%), transparent);
+  --shadow-2: 0 8px 28px -10px color-mix(in srgb, var(--shadow-c) calc(var(--sa2) * 100%), transparent);
+  --shadow-3: 0 24px 60px -20px color-mix(in srgb, var(--shadow-c) calc(var(--sa3) * 100%), transparent);
+  --glass-shadow: 0 1px 2px color-mix(in srgb, var(--shadow-c) calc(var(--ga1) * 100%), transparent), 0 16px 44px -22px color-mix(in srgb, var(--shadow-c) calc(var(--ga2) * 100%), transparent);
+  --glass-shadow-hover: 0 2px 4px color-mix(in srgb, var(--shadow-c) calc(var(--ga3) * 100%), transparent), 0 22px 54px -22px color-mix(in srgb, var(--shadow-c) calc(var(--ga4) * 100%), transparent);
+  --focus: 0 0 0 2px var(--surface), 0 0 0 4px var(--wine);
+  --glass-blur: 16px;
+  --glass-sat: 1.45;
+
+  --font: 'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-serif: 'Newsreader', Georgia, serif;
+  --fs-xs: 0.6875rem;
+  --fs-sm: 0.78125rem;
+  --fs-md: 0.84375rem;
+  --fs-lg: 0.9375rem;
+  --fs-xl: 1.25rem;
+  --fs-2xl: 1.75rem;
+
+  --r-xs: 4px;
+  --r-sm: 6px;
+  --r-md: 9px;
+  --r-lg: 13px;
+  --r-pill: 999px;
+
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 20px; --s6: 24px; --s8: 32px; --s10: 40px;
+
+  --nav-h: 56px;
+  --bottom-nav-h: 0px;
+  --rail-w: 0px;
+  --gutter: 24px;
+
+  /* motion */
+  --ease: cubic-bezier(0.22, 0.8, 0.24, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-theme: cubic-bezier(0.8, 0, 0.2, 1);
+  --d-micro: 150ms;
+  --d-hover: 170ms;
+  --d-menu: 200ms;
+  --d-route: 220ms;
+  --d-panel: 260ms;
+  --d-drawer: 300ms;
+  --d-section: 440ms;
+  --d-chart: 650ms;
+  --d-theme: 450ms;
+  --stagger: 40ms;
+
+  transition: --bg var(--d-theme) var(--ease-theme), --bg-sunk var(--d-theme) var(--ease-theme), --surface var(--d-theme) var(--ease-theme), --surface-2 var(--d-theme) var(--ease-theme), --surface-3 var(--d-theme) var(--ease-theme), --line var(--d-theme) var(--ease-theme), --line-strong var(--d-theme) var(--ease-theme), --ink var(--d-theme) var(--ease-theme), --ink-2 var(--d-theme) var(--ease-theme), --ink-3 var(--d-theme) var(--ease-theme), --ink-4 var(--d-theme) var(--ease-theme), --wine var(--d-theme) var(--ease-theme), --wine-strong var(--d-theme) var(--ease-theme), --wine-deep var(--d-theme) var(--ease-theme), --wine-soft var(--d-theme) var(--ease-theme), --wine-line var(--d-theme) var(--ease-theme), --on-wine var(--d-theme) var(--ease-theme), --blush var(--d-theme) var(--ease-theme), --ok var(--d-theme) var(--ease-theme), --ok-soft var(--d-theme) var(--ease-theme), --warn var(--d-theme) var(--ease-theme), --warn-soft var(--d-theme) var(--ease-theme), --bad var(--d-theme) var(--ease-theme), --bad-soft var(--d-theme) var(--ease-theme), --info var(--d-theme) var(--ease-theme), --info-soft var(--d-theme) var(--ease-theme), --glass-1 var(--d-theme) var(--ease-theme), --glass-2 var(--d-theme) var(--ease-theme), --glass-3 var(--d-theme) var(--ease-theme), --glass-hover var(--d-theme) var(--ease-theme), --glass-border var(--d-theme) var(--ease-theme), --glass-border-hover var(--d-theme) var(--ease-theme), --glass-edge var(--d-theme) var(--ease-theme), --glass-sheen var(--d-theme) var(--ease-theme), --ambient-a var(--d-theme) var(--ease-theme), --ambient-b var(--d-theme) var(--ease-theme), --ambient-c var(--d-theme) var(--ease-theme), --shadow-c var(--d-theme) var(--ease-theme), --chart-2 var(--d-theme) var(--ease-theme), --chart-3 var(--d-theme) var(--ease-theme), --chart-4 var(--d-theme) var(--ease-theme), --scroll-thumb var(--d-theme) var(--ease-theme), --on-wine-dark var(--d-theme) var(--ease-theme), --sa1 var(--d-theme) var(--ease-theme), --sa2 var(--d-theme) var(--ease-theme), --sa3 var(--d-theme) var(--ease-theme), --ga1 var(--d-theme) var(--ease-theme), --ga2 var(--d-theme) var(--ease-theme), --ga3 var(--d-theme) var(--ease-theme), --ga4 var(--d-theme) var(--ease-theme);
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #120d10;
+  --bg-sunk: #0e0a0c;
+  --surface: #1a1317;
+  --surface-2: #20181c;
+  --surface-3: #271e23;
+  --line: #33272d;
+  --line-strong: #44353c;
+  --ink: #f3ece6;
+  --ink-2: #cfc3c4;
+  --ink-3: #a09196;
+  --ink-4: #75666c;
+  --wine: #d9708b;
+  --wine-strong: #e48fa5;
+  --wine-deep: #8b1538;
+  --wine-soft: #35161f;
+  --wine-line: #5b2a38;
+  --on-wine: #1a0c11;
+  --blush: #35161f;
+  --ok: #7fc8a4;
+  --ok-soft: #14291f;
+  --warn: #e0a55c;
+  --warn-soft: #302211;
+  --bad: #ee8196;
+  --bad-soft: #35161d;
+  --info: #8fb0d8;
+  --info-soft: #17243a;
+  --glass-1: rgb(26 19 23 / 0.74);
+  --glass-2: rgb(30 22 27 / 0.86);
+  --glass-3: rgb(34 25 30 / 0.92);
+  --glass-hover: rgb(40 30 36 / 0.96);
+  --glass-border: rgb(255 255 255 / 0.10);
+  --glass-border-hover: rgb(217 112 139 / 0.4);
+  --glass-edge: rgb(255 255 255 / 0.16);
+  --glass-sheen: rgb(255 255 255 / 0.07);
+  --ambient-a: rgb(217 112 139 / 0.09);
+  --ambient-b: rgb(139 21 56 / 0.18);
+  --ambient-c: rgb(80 100 160 / 0.1);
+  --shadow-c: rgb(0 0 0);
+  --chart-2: #e48fa5;
+  --chart-3: #9c5a6c;
+  --chart-4: #a09196;
+  --scroll-thumb: rgb(255 255 255 / 0.22);
+  --on-wine-dark: #1a0c11;
+  --sa1: 0.4;
+  --sa2: 0.6;
+  --sa3: 0.8;
+  --ga1: 0.4;
+  --ga2: 0.75;
+  --ga3: 0.5;
+  --ga4: 0.9;
+}
+
+@media (prefers-reduced-motion: reduce) { :root { --d-theme: 120ms; } }
+@media (max-width: 1100px) { :root { --gutter: 20px; } }
+@media (max-width: 640px) { :root { --gutter: 16px; --nav-h: 52px; --glass-blur: 10px; } }
+@media (max-width: 1180px) { :root { --bottom-nav-h: calc(60px + env(safe-area-inset-bottom)); } }
+@media (min-width: 900px) and (max-width: 1180px) and (orientation: landscape) { :root { --rail-w: 64px; } }
