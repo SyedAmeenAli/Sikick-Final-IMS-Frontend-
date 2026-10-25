@@ -113,3 +113,14 @@
 .devpanel .row { gap: 6px; }
 .devpanel button { height: 26px; padding: 0 9px; border-radius: 7px; border: 1px solid var(--line-strong); background: var(--surface); font-size: var(--fs-xs); font-weight: 600; }
 .devpanel button[aria-pressed='true'] { background: var(--wine); color: var(--on-wine); border-color: var(--wine); }
+
+/* SiBorg and its copy sit in the middle of the panel */
+.siborg-art { display: block; flex: none; max-width: 100%; }
+.siborg-art svg { display: block; width: 100%; height: auto; }
+.siborg-art .sib-eyes { will-change: transform; }
+@media (min-width: 961px) {
+  .auth-side { align-items: center; text-align: center; }
+  .auth-side h2 { margin-inline: auto; }
+  .auth-side .quote { margin-inline: auto; }
+  .auth-side ul { width: min(100%, 440px); text-align: left; }
+}
