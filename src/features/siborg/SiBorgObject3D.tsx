@@ -150,7 +150,7 @@ export function SiBorgObject3D({ state = 'idle', className = '', view = 'front',
     root.add(face);
 
     // eyes: narrow vertical capsules lying on the face, with a faint rose halo
-    const eyeMat = new THREE.MeshBasicMaterial({ color: 0xfff4e6, toneMapped: false });
+    const eyeMat = new THREE.MeshBasicMaterial({ color: 0x14070b, toneMapped: false });
     const haloMat = new THREE.MeshBasicMaterial({ color: 0xe9a7b8, transparent: true, opacity: 0.28, depthWrite: false });
     const eyeGeo = new THREE.CapsuleGeometry(EYES.radius, EYES.halfLen * 2, 8, 20);
     const haloGeo = new THREE.CapsuleGeometry(EYES.radius * 2.1, EYES.halfLen * 2.1, 8, 20);
@@ -291,9 +291,8 @@ export function SiBorgObject3D({ state = 'idle', className = '', view = 'front',
 
       const breathe = live ? 1 + Math.sin(t * 1.3) * 0.05 : 1;
       const g = Math.max(0.05, (cur.glow + flash * 0.7) * breathe);
-      const e = Math.min(1, 0.55 + g * 0.45);
-      eyeMat.color.setRGB(1 * e, 0.96 * e, 0.9 * e);
-      haloMat.opacity = Math.min(0.55, 0.12 + g * 0.18);
+      eyeMat.color.setRGB(0.08, 0.03, 0.04);   // near-black on the pearl face: the eyes must read at a glance
+      haloMat.opacity = 0;   // no pale halo: it washes out the dark eyes
       // thinking: the eyes squint and look side to side; error: nearly closed
       const gaze = cur.think * Math.sin(t * 1.6) * 0.07 + cur.eyeX;
       eyes.forEach((eg, i) => {
